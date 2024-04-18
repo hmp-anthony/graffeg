@@ -1,0 +1,5 @@
+find_package(OpenGL REQUIRED)
+find_package(GLUT REQUIRED)
+add_executable(application main.cpp)
+include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
+target_link_libraries(application ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} )
