@@ -27,6 +27,7 @@ inline double degrees_to_radians(double degrees) {
 // Common Headers
 
 #include <graffeg/vec3.hpp>
+#include <graffeg/interval.hpp>
 #include <graffeg/color.hpp>
 #include <graffeg/ray.hpp>
 
