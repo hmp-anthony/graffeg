@@ -1,9 +1,8 @@
-# autodiff 
+# graffeg
 
 To build :
 `make`
 
-To test :
-`make test`
+I implemented this code bit-by-bit while reading through "Ray Tracing in One Weekend", and the follow up articles.
 
-# graffeg
+After finishing the tutorial I hope to augment the functionality of the code.
