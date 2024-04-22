@@ -9,7 +9,6 @@
 #include <iostream>
 
 int main() {
-
     hittable_list world;
 
     auto ground_material = make_shared<lambertian>(color(0.5, 0.5, 0.5));
@@ -56,8 +55,8 @@ int main() {
 
     cam.aspect_ratio      = 16.0 / 9.0;
     cam.image_width       = 1200;
-    cam.samples_per_pixel = 10;
-    cam.max_depth         = 10;
+    cam.samples_per_pixel = 5;
+    cam.max_depth         = 5;
 
     cam.vfov     = 20;
     cam.lookfrom = point3(13,2,3);
@@ -69,4 +68,3 @@ int main() {
 
     cam.render(world);
 }
-

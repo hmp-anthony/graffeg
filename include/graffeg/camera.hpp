@@ -18,8 +18,8 @@ public:
     point3 lookat   = point3(0,0,-1);  
     vec3   vup      = vec3(0,1,0);     
 
-    double defocus_angle = 0;
-    double focus_dist    = 10;
+    double defocus_angle = 10;
+    double focus_dist    = 1;
 
     void render(const hittable& world) {
         initialize();
@@ -82,6 +82,8 @@ private:
         auto viewport_upper_left =
             center - (focus_dist * w) - viewport_u/2 - viewport_v/2;
         pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
+
+        auto test = center - focus_dist * w;
    
         // Calculate the camera defocus disk basis vectors.
         auto defocus_radius = focus_dist * tan(degrees_to_radians(defocus_angle / 2));
