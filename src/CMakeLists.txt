@@ -10,3 +10,8 @@ add_executable(checkered_spheres checkered_spheres.cpp)
 include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
 target_link_libraries(checkered_spheres ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} )
 target_include_directories(checkered_spheres PUBLIC ../include)
+
+add_executable(earth earth.cpp)
+include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
+target_link_libraries(earth ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} )
+target_include_directories(earth PUBLIC ../include)
