@@ -20,3 +20,8 @@ add_executable(perlin_spheres perlin_spheres.cpp)
 include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
 target_link_libraries(perlin_spheres ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} )
 target_include_directories(perlin_spheres PUBLIC ../include)
+
+add_executable(quads quads.cpp)
+include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
+target_link_libraries(quads ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} )
+target_include_directories(quads PUBLIC ../include)
