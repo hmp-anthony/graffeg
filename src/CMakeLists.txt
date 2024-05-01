@@ -30,3 +30,8 @@ add_executable(simple_light simple_light.cpp)
 include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
 target_link_libraries(simple_light ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} )
 target_include_directories(simple_light PUBLIC ../include)
+
+add_executable(cornell_box cornell_box.cpp)
+include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
+target_link_libraries(cornell_box ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} )
+target_include_directories(cornell_box PUBLIC ../include)
