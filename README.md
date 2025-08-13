@@ -1,9 +1,10 @@
 # graffeg
 
-To build :
-`make`
+I use CodeBlocks.
 
-all the executables are in the 'build/src'
+`mkdir build`
+`cd build`
+`cmake .. -G"CodeBlocks - Unix Makefiles"`
 
 I implemented this code bit-by-bit while reading through "Ray Tracing in One Weekend", and the follow up articles.
 
