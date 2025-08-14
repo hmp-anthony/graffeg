@@ -19,9 +19,9 @@ int main() {
     camera cam;
 
     cam.aspect_ratio      = 16.0 / 9.0;
-    cam.image_width       = 400;
-    cam.samples_per_pixel = 100;
-    cam.max_depth         = 50;
+    cam.image_width       = 800;
+    cam.samples_per_pixel = 10;
+    cam.max_depth         = 10;
     cam.background        = color(0.70, 0.80, 1.00);
 
     cam.vfov     = 20;

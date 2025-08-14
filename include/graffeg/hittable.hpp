@@ -21,7 +21,7 @@ public:
         // NOTE: the parameter `outward_normal` is assumed to have unit length.
 
         front_face = dot(r.direction(), outward_normal) < 0;
-        
+
         // If front_face is true then the ray is outside the sphere.
         // Hence reverse the direction of the normal.
         normal = front_face ? outward_normal : -outward_normal;

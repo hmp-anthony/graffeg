@@ -1,7 +1,7 @@
 #ifndef MATERIAL_H
 #define MATERIAL_H
 
-#include <graffeg/graffeg.hpp> 
+#include <graffeg/graffeg.hpp>
 #include <graffeg/texture.hpp>
 
 
@@ -31,7 +31,7 @@ class lambertian : public material {
     const override {
         auto scatter_direction = rec.normal + random_unit_vector();
 
-        if(scatter_direction.near_zero()) 
+        if(scatter_direction.near_zero())
             scatter_direction = rec.normal;
 
         scattered = ray(rec.p, scatter_direction, r_in.time());
