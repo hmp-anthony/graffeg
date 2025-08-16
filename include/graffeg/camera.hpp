@@ -6,6 +6,8 @@
 #include<graffeg/hittable.hpp>
 #include<graffeg/material.hpp>
 
+#include <chrono>
+
 class camera {
 public:
     double aspect_ratio      = 1.0;
@@ -15,9 +17,9 @@ public:
     color  background;
 
     double vfov = 90;
-    point3 lookfrom = point3(0,0,0);   
-    point3 lookat   = point3(0,0,-1);  
-    vec3   vup      = vec3(0,1,0);     
+    point3 lookfrom = point3(0,0,0);
+    point3 lookat   = point3(0,0,-1);
+    vec3   vup      = vec3(0,1,0);
 
     double defocus_angle = 10;
     double focus_dist    = 1;
@@ -26,7 +28,9 @@ public:
         initialize();
 
         std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+        std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
+        #pragma omp parallel for
         for (int j = 0; j < image_height; j++) {
             std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
             for (int i = 0; i < image_width; i++) {
@@ -39,7 +43,10 @@ public:
             }
         }
 
-        std::clog << "\rDone.                 \n";
+        std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+        auto time_taken = std::chrono::duration_cast<std::chrono::seconds>(end - begin).count();
+
+        std::clog << "\rDone.\n  Time Taken: " << time_taken  << " seconds\n";
     }
 
 private:
@@ -85,7 +92,7 @@ private:
         pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
 
         auto test = center - focus_dist * w;
-   
+
         // Calculate the camera defocus disk basis vectors.
         auto defocus_radius = focus_dist * tan(degrees_to_radians(defocus_angle / 2));
         defocus_disk_u = u * defocus_radius;
@@ -125,14 +132,14 @@ private:
         // If the ray misses everything, return the background color;
         if(!world.hit(r, interval(0.001, infinity), rec))
             return background;
-            
-        ray scattered;    
+
+        ray scattered;
         color attenuation;
         color color_from_emission = rec.mat->emitted(rec.u, rec.v, rec.p);
 
         if(!rec.mat->scatter(r, rec, attenuation, scattered))
             return color_from_emission;
-        
+
         color color_from_scatter = attenuation * ray_color(scattered, depth-1, world);
 
         return color_from_emission + color_from_scatter;
