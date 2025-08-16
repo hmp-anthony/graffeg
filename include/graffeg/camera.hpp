@@ -30,7 +30,6 @@ public:
         std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
         std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
-        #pragma omp parallel for
         for (int j = 0; j < image_height; j++) {
             std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
             for (int i = 0; i < image_width; i++) {
