@@ -58,7 +58,7 @@ private:
     shared_ptr<hittable> right;
     aabb bbox;
 
-        static bool box_compare(
+    static bool box_compare(
         const shared_ptr<hittable> a, const shared_ptr<hittable> b, int axis_index) {
         auto a_axis_interval = a->bounding_box().axis_interval(axis_index);
         auto b_axis_interval = b->bounding_box().axis_interval(axis_index);
