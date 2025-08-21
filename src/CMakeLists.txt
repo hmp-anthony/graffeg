@@ -18,3 +18,6 @@ target_include_directories(simple_light PUBLIC ../include)
 
 add_executable(cornell_box cornell_box.cpp)
 target_include_directories(cornell_box PUBLIC ../include)
+
+add_executable(cornell_box_with_smoke_and_fog cornell_box_with_smoke_and_fog.cpp)
+target_include_directories(cornell_box_with_smoke_and_fog PUBLIC ../include)
