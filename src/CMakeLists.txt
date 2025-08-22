@@ -24,3 +24,6 @@ target_include_directories(cornell_box_with_smoke_and_fog PUBLIC ../include)
 
 add_executable(final_scene final_scene.cpp)
 target_include_directories(final_scene PUBLIC ../include)
+
+add_executable(pi pi.cpp)
+target_include_directories(pi PUBLIC ../include)
