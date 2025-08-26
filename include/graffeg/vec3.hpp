@@ -121,7 +121,7 @@ inline vec3 random_in_unit_disk() {
 inline vec3 random_in_unit_sphere() {
     while(true) {
         auto p = vec3::random(-1, 1);
-        if(p.length_squared() < 1) 
+        if(p.length_squared() < 1)
             return p;
     }
 }
@@ -147,6 +147,18 @@ inline vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat) {
     vec3 r_out_perp =  etai_over_etat * (uv + cos_theta*n);
     vec3 r_out_parallel = -sqrt(fabs(1.0 - r_out_perp.length_squared())) * n;
     return r_out_perp + r_out_parallel;
+}
+
+inline vec3 random_cosine_direction() {
+    auto r1 = random_double();
+    auto r2 = random_double();
+
+    auto phi = 2*pi*r1;
+    auto x = std::cos(phi) * std::sqrt(r2);
+    auto y = std::sin(phi) * std::sqrt(r2);
+    auto z = std::sqrt(1-r2);
+
+    return vec3(x, y, z);
 }
 
 #endif
