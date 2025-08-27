@@ -6,6 +6,7 @@
 #include <graffeg/camera.hpp>
 #include <graffeg/material.hpp>
 #include <graffeg/bvh.hpp>
+#include <graffeg/quad.hpp>
 
 #include <iostream>
 
@@ -55,6 +56,10 @@ int main() {
 
     world = hittable_list(make_shared<bvh_node>(world));
 
+    // Light Sources
+    auto empty_material = shared_ptr<material>();
+    quad lights(point3(2,2,2), vec3(2,0,0), vec3(0,0,2), empty_material);
+
     camera cam;
 
     cam.aspect_ratio      = 16.0 / 9.0;
@@ -72,5 +77,5 @@ int main() {
     cam.defocus_angle = 0.6;
     cam.focus_dist    = 10.0;
 
-    cam.render(world);
+    cam.render(world, lights);
 }
