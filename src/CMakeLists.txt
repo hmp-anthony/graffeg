@@ -22,6 +22,9 @@ target_include_directories(cornell_box PUBLIC ../include)
 add_executable(cornell_box_with_smoke_and_fog cornell_box_with_smoke_and_fog.cpp)
 target_include_directories(cornell_box_with_smoke_and_fog PUBLIC ../include)
 
+add_executable(cornell_box_with_alum cornell_box_with_alum.cpp)
+target_include_directories(cornell_box_with_alum PUBLIC ../include)
+
 add_executable(final_scene final_scene.cpp)
 target_include_directories(final_scene PUBLIC ../include)
 
